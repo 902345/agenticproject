@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Smart Trip Planner — Enhanced</title>
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>Smart Trip Planner — Enhanced</h1>
+    <p class="note">Enter one or more destinations in the search box (comma-separated). Example: <code>Paris, Tokyo</code></p>
+    <form id="planForm">
+      <label>Search destinations: <input type="text" id="destinations" placeholder="e.g., Paris, Tokyo" /></label>
+      <label>Start date: <input type="date" id="start_date" required></label>
+      <label>End date: <input type="date" id="end_date" required></label>
+      <label>Budget (USD): <input type="number" id="budget" placeholder="0 for no budget"></label>
+      <label>Travel style:
+        <select id="style">
+          <option value="relaxed">Relaxed</option>
+          <option value="adventurous">Adventurous</option>
+          <option value="luxury">Luxury</option>
+          <option value="budget">Budget</option>
+        </select>
+      </label>
+      <label><input type="checkbox" id="crewai_enabled"/> Enable CrewAI orchestration (if installed)</label>
+      <button type="submit">Plan Trip</button>
+    </form>
+
+    <div id="result" class="card" style="display:none;">
+      <h2>Itinerary</h2>
+      <div id="meta"></div>
+      <div id="itinerary"></div>
+      <h3>Packing List</h3>
+      <ul id="packing"></ul>
+      <h3>Budget</h3>
+      <div id="budget"></div>
+      <h3>Agent Log</h3>
+      <pre id="log" class="log"></pre>
+    </div>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
